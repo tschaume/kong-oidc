@@ -7,7 +7,7 @@ RUN apk add --no-cache git
 RUN luarocks install kong-response-size-limiting
 RUN luarocks install kong-log-google
 
-COPY . /usr/local/kong-oidc
-RUN luarocks install /usr/local/kong-oidc/kong-oidc-1.1.0-0.rockspec
+COPY . /kong-oidc
+RUN cd /kong-oidc && luarocks make
 
 USER kong
